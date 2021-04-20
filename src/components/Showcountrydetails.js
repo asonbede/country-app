@@ -1,7 +1,8 @@
 import React from "react";
-
-const Showcountrydetails = ({ country }) => {
+import WeatherShow from "./WeatherShow";
+const Showcountrydetails = ({ country, weatherValue }) => {
   // const selectedCountry = countries.filter((item) => item.name === country);
+  console.log({ weatherValue });
   if (country === null) {
     return null;
   }
@@ -28,6 +29,10 @@ const Showcountrydetails = ({ country }) => {
         <br />{" "}
         <img src={country.flag} height="100" alt={`flag of ${country.name}`} />
       </p>
+
+      {weatherValue ? (
+        <WeatherShow weatherValue={weatherValue} country={country} />
+      ) : null}
     </>
   );
 };
